@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './navbar.jsx'
 import Home from './home.jsx'
 import Projects from './projects.jsx'
+import Cool from './cool-stuff.jsx'
 import './index.css'
 const scrollsettings = {
   initial: { opacity: 0, y: 50 }, //the start
@@ -21,6 +22,7 @@ function App() {
     <Routes>
       <Route path = "/" element = {<Home/>}/>
       <Route path = "/projects" element = {<Projects/>}/>
+      <Route path = "/cool-stuff" element = {<Cool/>}/>
     </Routes>
   </div>
   
