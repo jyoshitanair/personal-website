@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import { motion } from 'framer-motion'
 import './index.css'
 
-export default function Projects() {
+export default function CoolStuff() {
   useEffect(() => {
     console.log("hi")
     async function hackatime() {
@@ -23,7 +23,8 @@ export default function Projects() {
   }, [])
   return (
   <>
-    <p> hey</p>
+    <h1>  Github Heat Map: </h1>
+    <img src="https://ghchart.rshah.org/jyoshitanair"/>
   </>
 );
 }
