@@ -13,6 +13,7 @@ export default function Navbar() {
         <li><Link to = "/">Home</Link></li>
         <li><Link to = "/projects">Projects</Link></li>
         <li><Link to = "/cool-stuff">Cool Stuff</Link></li>
+        <li><Link to = "/about-me">About me!</Link></li>
     </ul>
   </nav>
 );

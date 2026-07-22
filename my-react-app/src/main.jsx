@@ -7,6 +7,7 @@ import Navbar from './navbar.jsx'
 import Home from './home.jsx'
 import Projects from './projects.jsx'
 import Cool from './cool-stuff.jsx'
+import About from './aboutme.jsx'
 import './index.css'
 const scrollsettings = {
   initial: { opacity: 0, y: 50 }, //the start
@@ -23,6 +24,7 @@ function App() {
       <Route path = "/" element = {<Home/>}/>
       <Route path = "/projects" element = {<Projects/>}/>
       <Route path = "/cool-stuff" element = {<Cool/>}/>
+      <Route path = "/about-me" element = {<About/>}/>
     </Routes>
   </div>
   
