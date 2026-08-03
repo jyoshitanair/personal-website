@@ -1,5 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 //pgs
 
@@ -10,25 +11,42 @@ import Cool from './cool-stuff.jsx'
 import About from './aboutme.jsx'
 import './index.css'
 const scrollsettings = {
-  initial: { opacity: 0, y: 50 }, //the start
-  whileInView: { opacity: 1, y: 0 },
+  initial: { opacity: 0, y: 100 }, //the start
+  animate: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.2 },
   transition: { duration: 0.8, ease: "ease-in-out" }
 };
+const scrollsettings2 = {
+  initial: { opacity: 0, y: 100 }, //the start
+  animate: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.8, delay: 0.6, ease: "ease-in-out" }
+};
 function App() {
   return (
-  <BrowserRouter>
-  <Navbar/>
-  <div className = "allPgs">
-    <Routes>
-      <Route path = "/" element = {<Home/>}/>
-      <Route path = "/projects" element = {<Projects/>}/>
-      <Route path = "/cool-stuff" element = {<Cool/>}/>
-      <Route path = "/about-me" element = {<About/>}/>
-    </Routes>
-  </div>
-  
-  </BrowserRouter>
+    <BrowserRouter>
+      <div class = "overall">
+          <motion.section  className="scroll left" {...scrollsettings2}>
+              <h1> hey </h1>
+              <h1> hey </h1>
+          </motion.section>
+
+          <motion.section  id = "header_container" className="scroll" {...scrollsettings}>
+            <div className = "allPgs">
+              <Routes>
+                  <Route path = "/" element = {<Home/>}/>
+                  <Route path = "/projects" element = {<Projects/>}/>
+                  <Route path = "/cool-stuff" element = {<Cool/>}/>
+                  <Route path = "/about-me" element = {<About/>}/>
+              </Routes>
+            </div>
+          </motion.section>
+
+          <motion.section  className="scroll right" {...scrollsettings2}>
+                <Navbar/>
+          </motion.section>
+    </div>
+  </BrowserRouter> 
 );
 }
 

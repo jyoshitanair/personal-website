@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import img from "./assets/Illustration 20260803.PNG";
-export default function Navbar() {
+export default function aboutme() {
     const [buttonT, setButtonSideT] = useState(true)
     const [buttonF, setButtonSideF] = useState(true)
     const [buttonA, setButtonSideA] = useState(true)
