@@ -1,13 +1,19 @@
 import React, {useState} from 'react';
 import { motion } from 'framer-motion'
 import './index.css'
-import img from "./assets/hero.png";
+import img from "./assets/Illustration 20260803.PNG";
 import About from './aboutme.jsx'
 const scrollsettings = {
-  initial: { opacity: 0, y: 50 }, //the start
-  whileInView: { opacity: 1, y: 0 },
+  initial: { opacity: 0, y: 100 }, //the start
+  animate: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.2 },
   transition: { duration: 0.8, ease: "ease-in-out" }
+};
+const scrollsettings2 = {
+  initial: { opacity: 0, y: 100 }, //the start
+  animate: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.8, delay: 0.6, ease: "ease-in-out" }
 };
 var arrayOfStuff = ["Welcome", "j", "my", "corner", "of", "the", "internet"]
 
@@ -15,6 +21,43 @@ export default function Home() {
   const [page, setPage] = useState("home")
   return (
   <>
+  { page == "home" && 
+  <div class = "overall">
+        <motion.section  className="scroll left" {...scrollsettings2}>
+            <h1> hey </h1>
+            <h1> hey </h1>
+        </motion.section>
+
+        <motion.section  id = "header_container" className="scroll" {...scrollsettings}>
+            <div style = {{textAlign:"left"}} id = "banner"> 
+              <h3 style = {{padding: "0px 30px" }}> name of website</h3>
+              <div className = "overall" style = {{paddingLeft:"10px", gap: "30px" }}>
+                <img className = "profile_img" src = {img}/>
+                <h5 style = {{padding: "0px 50px" }} > helloo welcome to my little corner of the internet! i'm jyoshita a teen that loves art & tech :P and this is my silly mascot crewshon </h5>
+              </div>
+            </div>
+           <div className = "overall" style = {{alignItems:"center", justifyContent:"center", gap: "30px", backgroundColor: "rgb(32, 165, 88)" }}>
+              <a href = "https://jyoshitanair.itch.io/">Itch.io</a>
+              <a href = "https://github.com/jyoshitanair">Github</a>
+              <a href = "https://www.webtoons.com/p/community/en/u/_3bgfu">Webtoon</a>
+
+            </div>
+        </motion.section>
+
+        <motion.section  className="scroll right" {...scrollsettings2}>
+            <h1> hey </h1>
+            <h1> hey </h1>
+        </motion.section>
+  </div>
+  }
+  {page == "aboutme" && <About/>}
+  </>
+)};
+
+/* 
+
+
+
   { page == "home" && 
   <>
       <div id="header_container">
@@ -68,6 +111,4 @@ export default function Home() {
       </>
       }
       {page == "aboutme" && <About/>}
-  </>
-);
-}
+*/
