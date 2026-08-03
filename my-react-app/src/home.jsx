@@ -19,6 +19,7 @@ var arrayOfStuff = ["Welcome", "j", "my", "corner", "of", "the", "internet"]
 
 export default function Home() {
   const [page, setPage] = useState("home")
+  const [logos, isLogos] = useState(true)
   return (
   <>
   { page == "home" && 
@@ -36,11 +37,12 @@ export default function Home() {
                 <h5 style = {{padding: "0px 50px" }} > helloo welcome to my little corner of the internet! i'm jyoshita a teen that loves art & tech :P and this is my silly mascot crewshon </h5>
               </div>
             </div>
-           <div className = "overall" style = {{alignItems:"center", justifyContent:"center", gap: "30px", backgroundColor: "rgb(32, 165, 88)" }}>
-              <a href = "https://jyoshitanair.itch.io/">Itch.io</a>
-              <a href = "https://github.com/jyoshitanair">Github</a>
-              <a href = "https://www.webtoons.com/p/community/en/u/_3bgfu">Webtoon</a>
-
+           <div className = "overall" style = {{alignItems:"center", justifyContent:"center", gap: "30px", backgroundColor: "rgb(32, 165, 88)", height: '40vh' }}>
+              <button className = {logos ? 'normal' : 'normal clicked'} onClick = {() => isLogos(!logos)}> <img src = {img}/> </button>
+                <a className = {logos ? 'anchor-left'  : 'anchor-left clicked' } href = "https://jyoshitanair.itch.io/">Itch.io</a>
+                <a className = {logos ? 'anchor-right' : 'anchor-right clicked' } href = "https://github.com/jyoshitanair">Github</a>
+                <a className = {logos ? 'anchor-up'    : 'anchor-up clicked' } href = "https://www.webtoons.com/p/community/en/u/_3bgfu">Webtoon</a>
+                <a className = {logos ? 'anchor-down'  : 'anchor-down clicked' } href = "https://www.linkedin.com/in/jyoshita-nair-1917a341b/">Linkdin</a>
             </div>
         </motion.section>
 
@@ -53,6 +55,10 @@ export default function Home() {
   {page == "aboutme" && <About/>}
   </>
 )};
+
+
+
+
 
 /* 
 
