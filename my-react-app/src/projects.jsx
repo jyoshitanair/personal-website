@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion'
 import './index.css'
 import github from "./assets/github.png";
@@ -22,7 +22,8 @@ var game_projects = [
     itch: "https://jyoshitanair.itch.io/star-theif",
     name: "STAR THEIF!",
     description: "game des!",
-    img: star
+    img: star,
+    categories: ["Godot"]
   },
   {
     git: "https://github.com/jyoshitanair/text-game",
@@ -67,35 +68,55 @@ var game_projects = [
     img: star
   },
 ]
+
 export default function Projects() {
-  const nodes = game_projects.map((item, key) => {
-    let even = false
-    if (key % 2 === 0){
-      even = true
-    }else{
-    even = false
-    }
-    return (
-      <motion.section style = {{flexDirection: even? "row" : "row-reverse"}}className="scroll" key = {key} {...scrollsettings}>
-        <img className = "large" src = {item.img}/>
-        <div style = {{display: "flex", alignItems: "flex-start", justifyContent: "flex-start", flexDirection: "column", padding: "30px 50px", width:"100%", textAlign:"left"}}>
-          <h2 style = {{position: "relative", fontWeight: "bold", fontSize: "40px", width:"100%", display:"block"}}> {item.name}</h2>
-          <h6> {item.description}</h6>
-          <div style = {{display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "row", gap : "40px"}}>
-            <a href = {item.git}> <img className = "small" src = {github}/> </a>
-            <a href = {item.itch}> <img className = "small" src = {itch}/> </a>
+  const [search, setSearch] = useState("");
+  useEffect(() => {
+    
+  }, [search])
+  function refindnodes(search) {
+    const filtered = game_projects.
+    var them = search.trim().toLowerCase()
+    const nodes = game_projects.map((item, key) => {
+      if ((search.trim() !== "") && !item.name.trim().toLowerCase().includes(them) || item.description.trim().toLowerCase().includes(them)){
+        console.log("RETURNING")
+        return
+      }
+      console.log("MAKE IT")
+      let even = false
+      if (key % 2 === 0){
+        even = true
+      }else{
+      even = false
+      }
+      return (
+        <motion.section style = {{backgroundColor: "rgb(132, 113, 157)", flexDirection: even? "row" : "row-reverse"}}className="scroll" key = {key} {...scrollsettings}>
+          <img className = "large" src = {item.img}/>
+          <div style = {{display: "flex", alignItems: "flex-start", justifyContent: "flex-start", flexDirection: "column", padding: "30px 50px", width:"100%", textAlign:"left"}}>
+            <h2 style = {{position: "relative", fontWeight: "bold", fontSize: "40px", width:"100%", display:"block"}}> {item.name}</h2>
+            <h6> {item.description}</h6>
+            <div style = {{display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "row", gap : "40px"}}>
+              <a href = {item.git}> <img className = "small" src = {github}/> </a>
+              <a href = {item.itch}> <img className = "small" src = {itch}/> </a>
+            </div>
           </div>
-        </div>
-      </motion.section>
-    )
-  });
+        </motion.section>
+      )
+    });
+    return nodes;
+  }
   return (
     <>
       <h1> projects</h1>
+      <input
+      type = "text"
+      placeholder = "Search Project by title..."
+      value = {search}
+      onChange = {(e) => {setSearch(e.target.value)}}
+      />
       <div className = "projects">
-        {nodes}
+        {refindnodes(search)}
       </div>
-      
       <motion.section className="scroll" {...scrollsettings}>
         <h2> Hi there!</h2>
         <h6> yapity yap yap 1</h6>

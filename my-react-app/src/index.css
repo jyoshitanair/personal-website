@@ -142,10 +142,11 @@ code {
 .large{
   padding-left: 70px;
   transform: scale(0.9);
-  width: 800px;
+  width: 650px;
   height: 200px;
   overflow: hidden;
   object-fit: cover;
+  object-position: top;
 }
 .large:hover{
   transform: scale(1.0) rotate(3deg);
