@@ -132,8 +132,24 @@ code {
   box-sizing: border-box; /*IMPORTANT TO MAKE IT FIT OUR LIMITS INCLUDING PADDING */
 }
 .scroll{
+  gap: 10px;
+  display: flex; 
+  align-items: center; 
+  justify-content:center; 
   width: 100%;
   transform: translateY(100px);
+}
+.large{
+  padding-left: 70px;
+  transform: scale(0.9);
+  width: 800px;
+  height: 200px;
+  overflow: hidden;
+  object-fit: cover;
+}
+.large:hover{
+  transform: scale(1.0) rotate(3deg);
+
 }
 .sidebyside{
   display: flex;
@@ -274,24 +290,42 @@ code {
 .anchor-left img, .anchor-right img, .anchor-up img, .anchor-down img{
   width: 50px; 
   height: 50px;
+  filter: grayscale(80%);
 }
 .anchor-left:hover img, .anchor-right:hover img, .anchor-up:hover img, .anchor-down:hover img{
-  transform: scale(1.4);
+  transform: scale(1.4) rotate(-5deg);
+  filter: grayscale(0%);
 }
 
 .anchor-left.clicked{
-  transform: translate(-15vw,12vh);
+  transform: translate(-11vw,15vh);
   opacity: 1; 
 }
 .anchor-right.clicked{
- transform: translate(12vw,12vh);
+ transform: translate(8vw,15vh);
   opacity: 1; 
 }
 .anchor-up.clicked{
-  transform: translate(12vw,-12vh);
+  transform: translate(8vw,-15vh);
   opacity: 1; 
 }
 .anchor-down.clicked{
-  transform: translate(-15vw,-12vh);
+  transform: translate(-11vw,-15vh);
   opacity: 1; 
+}
+.projects{
+  display: flex; 
+  flex-direction: column;
+  gap: 40px; 
+  background-color: rgb(211, 210, 210); 
+}
+
+.small{
+  width: 30px;
+  height: 30px;
+  filter: grayscale(80%);
+}
+.small:hover{
+  transform: scale(1.4) rotate(-5deg);
+  filter: grayscale(0%);
 }
