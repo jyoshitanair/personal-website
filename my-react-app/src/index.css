@@ -54,14 +54,16 @@ body {
   margin: 0;
 }
 #header_container{
-  margin-left: 240px; 
-  margin-right: 240px;
+
+  /*margin-left: 240px; 
+  margin-right: 240px;*/
   flex: 2; 
   box-sizing: border-box;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
+  min-width: 0; 
   background-image: url('https://i0.wp.com/www.printmag.com/wp-content/uploads/2021/02/4cbe8d_f1ed2800a49649848102c68fc5a66e53mv2.gif?fit=476%2C280&ssl=1'); /*REPLACE LATER */
   background-size: cover;
   background-position: center;
@@ -136,14 +138,13 @@ code {
   display: flex; 
   align-items: center; 
   justify-content:center; 
-  width: 100%;
   transform: translateY(100px);
 }
 .large{
-  padding-left: 70px;
+  padding-left: 0px;
   transform: scale(0.9);
-  width: 650px;
-  height: 200px;
+  width: 100%;
+  height: 150px;
   overflow: hidden;
   object-fit: cover;
   object-position: top;
@@ -170,10 +171,10 @@ code {
   padding-left: 100px;
 }
 .overall{
-  width: 100%; 
+  width: 100%;
   display: flex; 
+  max-width: 100vw;
   flex-direction: row;
-  position: relative; 
 }
 .navbar{
   left: 0;
@@ -186,20 +187,16 @@ code {
 .left{
   display:flex;
   flex-direction: column;
-  position: fixed;
-  width:auto;
-  left: 20px;
+  justify-content: left;
   transform: translateY(-50%); /*center~*/
   flex: 1; 
   overflow: hidden;
   box-sizing: border-box;
 }
 .right{
+  justify-content: left;
   display:flex;
   flex-direction: column;
-  position: fixed;
-  width:auto;
-  right: 20px;
   transform: translateY(-50%); /*center~*/
   flex: 1; 
   overflow: hidden;

@@ -13,7 +13,7 @@ import ren from "./assets/ren.png";
 const scrollsettings = {
   initial: { opacity: 0, y: 50 }, //the start
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.2 },
+  viewport: { once: false, amount: 0.2 },
   transition: { duration: 0.8, ease: "ease-in-out" }
 };
 var game_projects = [
@@ -71,17 +71,24 @@ var game_projects = [
 
 export default function Projects() {
   const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("");
+   const [cat, showCat] = useState(false);
   useEffect(() => {
     
   }, [search])
   function refindnodes(search) {
-    const filtered = game_projects.
     var them = search.trim().toLowerCase()
-    const nodes = game_projects.map((item, key) => {
-      if ((search.trim() !== "") && !item.name.trim().toLowerCase().includes(them) || item.description.trim().toLowerCase().includes(them)){
-        console.log("RETURNING")
-        return
-      }
+    const filtered_nodes = game_projects.filter((item) => {
+      return them === "" || item.name.trim().toLowerCase().includes(them) || item.description.trim().toLowerCase().includes(them)
+    });
+    if (!filtered_nodes||filtered_nodes.length == 0 ||filtered_nodes == []){
+      return (
+        <div>
+          <h4> uh oh! no results D: </h4>
+        </div>
+      );
+    }
+    const nodes = filtered_nodes.map((item, key) => {
       console.log("MAKE IT")
       let even = false
       if (key % 2 === 0){
@@ -92,7 +99,7 @@ export default function Projects() {
       return (
         <motion.section style = {{backgroundColor: "rgb(132, 113, 157)", flexDirection: even? "row" : "row-reverse"}}className="scroll" key = {key} {...scrollsettings}>
           <img className = "large" src = {item.img}/>
-          <div style = {{display: "flex", alignItems: "flex-start", justifyContent: "flex-start", flexDirection: "column", padding: "30px 50px", width:"100%", textAlign:"left"}}>
+          <div style = {{display: "flex", alignItems: "flex-start", justifyContent: "flex-start", flexDirection: "column", paddingLeft:"35px",paddingTop: "30px", width:"100%", textAlign:"left"}}>
             <h2 style = {{position: "relative", fontWeight: "bold", fontSize: "40px", width:"100%", display:"block"}}> {item.name}</h2>
             <h6> {item.description}</h6>
             <div style = {{display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "row", gap : "40px"}}>
@@ -106,7 +113,7 @@ export default function Projects() {
     return nodes;
   }
   return (
-    <>
+    <div>
       <h1> projects</h1>
       <input
       type = "text"
@@ -114,6 +121,26 @@ export default function Projects() {
       value = {search}
       onChange = {(e) => {setSearch(e.target.value)}}
       />
+      <label for ="categories"> Category: </label>
+      {/* <select name = "categories" multiple size = "4">
+      value = {category}
+      onChange = {(e) => setCategory(e.target.value)}
+      <option value = "all"> All </option>
+      <option value = "Godot"> Godot </option>
+      <option value = "all"> All </option>
+      <option value = "all"> All </option>
+      </select> */}
+      <div name = "categories">
+        <button onClick = {() => showCat(!cat)}> Categories</button>
+        {cat && 
+        <div>
+          <button> Godot </button>
+          <button> React </button>
+          <button> Supabase </button>
+          <button> CSS </button>
+        </div>
+        }
+      </div>
       <div className = "projects">
         {refindnodes(search)}
       </div>
@@ -129,6 +156,6 @@ export default function Projects() {
         <h2> Hi there!oooh</h2>
         <h6> yapity yap yap 3</h6>
       </motion.section>
-  </>
+ </div>
 );
 }
