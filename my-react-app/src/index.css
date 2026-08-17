@@ -54,9 +54,6 @@ body {
   margin: 0;
 }
 #header_container{
-
-  /*margin-left: 240px; 
-  margin-right: 240px;*/
   flex: 2; 
   box-sizing: border-box;
   display: flex;

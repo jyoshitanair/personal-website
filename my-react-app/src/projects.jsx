@@ -30,56 +30,75 @@ var game_projects = [
     itch: "https://jyoshitanair.itch.io/cat-mayhem",
     name: "Cat Mayhem",
     description: "game des!",
-    img: cat
+    img: cat, 
+    categories: ["Godot"]
   },
   {
     git: "https://github.com/jyoshitanair/visual-novel",
     itch: "https://jyoshitanair.itch.io/love-on-the-menu",
     name: "Love on The Menu",
     description: "game des!",
-    img: ren
+    img: ren, 
+    categories: ["Godot"]
   },
   {
     git: "https://github.com/jyoshitanair/duck_waddle",
     itch: "https://jyoshitanair.itch.io/duck-waddle",
     name: "Duck Waddle",
     description: "game des!",
-    img: cold
+    img: cold, 
+    categories: ["Godot"]
   },
    {
     git: "https://github.com/jyoshitanair/fish-game",
     itch: "https://jyoshitanair.itch.io/fish",
     name: "Fish",
     description: "game des!",
-    img: cold
+    img: cold, 
+    categories: ["Godot"]
   },
   {
     git: "https://github.com/jyoshitanair/escape_room",
     itch: "https://jyoshitanair.itch.io/escape-the-school",
     name: "Escape The School",
     description: "game des!",
-    img: star
+    img: star, 
+    categories: ["Godot"]
   },
   {
     git: "https://github.com/jyoshitanair/MonsterManor",
     itch: "https://jyoshitanair.itch.io/monster-manor",
     name: "Monster Manor",
     description: "game des!",
-    img: star
+    img: star, 
+    categories: ["Godot", "Supabase"]
   },
 ]
 
 export default function Projects() {
   const [search, setSearch] = useState("");
+  const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState("");
-   const [cat, showCat] = useState(false);
+  const [cat, showCat] = useState(false);
+  const [color1, setColor1] = useState(false);
+  const [color2, setColor2] = useState(false);
+  const [color3, setColor3] = useState(false);
+  const [color4, setColor4] = useState(false);
   useEffect(() => {
-    
-  }, [search])
-  function refindnodes(search) {
+    var array = []
+    if (color1) array.push("Godot")
+    if (color2) array.push("React")
+    if (color3) array.push("Supabase")
+    if (color4) array.push("CSS")
+    setCategories(array)
+    console.log(categories)
+  }, [color1, color2, color3, color4])
+  function refindnodes(search, categories) {
     var them = search.trim().toLowerCase()
     const filtered_nodes = game_projects.filter((item) => {
-      return them === "" || item.name.trim().toLowerCase().includes(them) || item.description.trim().toLowerCase().includes(them)
+      const matchSearch = (them === "" || item.name.trim().toLowerCase().includes(them) || item.description.trim().toLowerCase().includes(them))
+      const matchCat = categories.length == 0? true: categories.every((small) => item.categories?.includes(small) )
+      return matchSearch && matchCat
     });
     if (!filtered_nodes||filtered_nodes.length == 0 ||filtered_nodes == []){
       return (
@@ -89,7 +108,6 @@ export default function Projects() {
       );
     }
     const nodes = filtered_nodes.map((item, key) => {
-      console.log("MAKE IT")
       let even = false
       if (key % 2 === 0){
         even = true
@@ -122,27 +140,19 @@ export default function Projects() {
       onChange = {(e) => {setSearch(e.target.value)}}
       />
       <label for ="categories"> Category: </label>
-      {/* <select name = "categories" multiple size = "4">
-      value = {category}
-      onChange = {(e) => setCategory(e.target.value)}
-      <option value = "all"> All </option>
-      <option value = "Godot"> Godot </option>
-      <option value = "all"> All </option>
-      <option value = "all"> All </option>
-      </select> */}
-      <div name = "categories">
         <button onClick = {() => showCat(!cat)}> Categories</button>
+        <div name = "categories" style = {{display: "inline-flex"}}>
         {cat && 
-        <div>
-          <button> Godot </button>
-          <button> React </button>
-          <button> Supabase </button>
-          <button> CSS </button>
+        <div style = {{display: "flex", gap: "10px"}}>
+          <button style = {{backgroundColor: color1? "red": "gray"}} onClick = {() => setColor1(!color1)}> Godot </button>
+          <button style = {{backgroundColor: color2? "red": "gray"}} onClick = {() => setColor2(!color2)}> React </button>
+          <button style = {{backgroundColor: color3? "red": "gray"}} onClick = {() => setColor3(!color3)}> Supabase </button>
+          <button style = {{backgroundColor: color4? "red": "gray"}} onClick = {() => setColor4(!color4)}> CSS </button>
         </div>
         }
       </div>
       <div className = "projects">
-        {refindnodes(search)}
+        {refindnodes(search, categories)}
       </div>
       <motion.section className="scroll" {...scrollsettings}>
         <h2> Hi there!</h2>
