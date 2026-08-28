@@ -9,17 +9,17 @@ import itch from "./assets/itch.png";
 import About from './aboutme.jsx'
 const scrollsettings = {
   initial: { opacity: 0, y: 100 }, //the start
-  animate: { opacity: 1, y: 0 },
+  whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.2 },
   transition: { duration: 0.8, ease: "ease-in-out" }
 };
 const scrollsettings2 = {
   initial: { opacity: 0, y: 100 }, //the start
-  animate: { opacity: 1, y: 0 },
+  whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.2 },
   transition: { duration: 0.8, delay: 0.6, ease: "ease-in-out" }
 };
-var arrayOfStuff = ["Welcome", "j", "my", "corner", "of", "the", "internet"]
+var arrayOfStuff = ["Welcome", "to", "my", "website!"]
 
 export default function Home() {
   const [page, setPage] = useState("home")
@@ -29,10 +29,26 @@ export default function Home() {
   { page == "home" && 
   <div>
     <div style = {{textAlign:"left"}} id = "banner"> 
-      <h3 style = {{padding: "0px 30px" }}> name of website</h3>
+      <motion.section style = {{padding: "0px 30px" }}>
+          {arrayOfStuff.map((word, index) => {
+              const scrollsettingsdos = {
+                initial: { opacity: 0, y: 100 }, //the start
+                animate: { opacity: 1, y: 0 },
+                viewport: { once: true, amount: 0 },
+                transition: { duration: 0.3, delay: (0.7 + index*0.2), ease: "ease-in-out" }
+              };
+              return(
+                <>
+                  <motion.span style = {{display: "inline-block", marginRight: "1em"}} {...scrollsettingsdos}>
+                    <h3> {word} </h3>
+                  </motion.span>
+                </>
+              )
+          })}
+        </motion.section>
       <div className = "overall" style = {{paddingLeft:"10px", gap: "30px" }}>
       <img className = "profile_img" src = {img}/>
-      <h5 style = {{padding: "0px 50px" }} > helloo welcome to my little corner of the internet! i'm jyoshita a teen that loves art & tech :P and this is my silly mascot crewshon </h5>
+      <h5 style = {{padding: "0px 50px" }} > helloo welcome to my little corner of the internet! i'm jyoshita a teen that loves art & tech :P </h5>
     </div>
     </div>
       <div className = "overall" style = {{alignItems:"center", justifyContent:"center", gap: "30px", backgroundColor: "rgb(32, 165, 88)", height: '40vh' }}>
@@ -42,15 +58,37 @@ export default function Home() {
       <button className = {logos ? 'anchor-up'    : 'anchor-up clicked' } href = "https://www.webtoons.com/p/community/en/u/_3bgfu">  <img src = {webtoon}/> </button>
       <button className = {logos ? 'anchor-down'  : 'anchor-down clicked' } href = "https://www.linkedin.com/in/jyoshita-nair-1917a341b/"> <img src = {link}/></button>
     </div>
-    <h1> hi</h1>
-    <h1> hi</h1>
-    <h1> hi</h1>
-    <h1> hi</h1>
-    <h1> hi</h1>
-    <h1> hi</h1>
-    <h1> hi</h1>
-    <h1> hi</h1>
-    <h1> hi</h1>
+    <motion.section {...scrollsettings}>
+        <h2> hi!</h2>
+    </motion.section>
+    {/*<div>
+      <motion.section {...scrollsettings}>
+        <h1> a little about me :P </h1>
+        <div className="sidebyside">
+          <h6 > I'm a highschooler that loves tech, coding, art, and anime! I'm primarily a web and 
+          game dev although i'm always tinkering around with new technologies. I also enjoy drawing webtoons
+          and animation :3 </h6>
+          <button onClick = {() => {setPage("aboutme")}}> more about me? 0////0 </button>
+          <img src = {img}/>
+        </div>
+      </motion.section>
+      <motion.section {...scrollsettings}>
+        <h1> Tech I've worked with ~ </h1>
+        <div className="sidebyside">
+          <img style = {{width: 100, height: 100}} src = {img}/>
+          <img style = {{width: 100, height: 100}} src = {img}/>
+          <img style = {{width: 100, height: 100}} src = {img}/>
+          <img style = {{width: 100, height: 100}} src = {img}/>
+          <img style = {{width: 100, height: 100}} src = {img}/>
+          <img style = {{width: 100, height: 100}} src = {img}/>
+          <img style = {{width: 100, height: 100}} src = {img}/>
+        </div>
+      </motion.section>
+      <motion.section {...scrollsettings}>
+            <h2> Hi there!oooh</h2>
+            <h6> yapity yap yap 3</h6>
+      </motion.section>
+    </div> */}
   </div>
   }
   {page == "aboutme" && <About/>}

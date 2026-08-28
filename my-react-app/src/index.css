@@ -324,3 +324,31 @@ code {
   transform: scale(1.4) rotate(-5deg);
   filter: grayscale(0%);
 }
+.button_holder{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
+.button_img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 40px;
+  width: 140px;
+  height: 300px;
+  box-sizing: border-box;
+  object-fit: contain;
+  font-family:cursive;
+  font-size:larger;
+}
+.button_img:hover{
+  transform: scale(1.0) rotate(-3deg);
+}
+.button_img img{
+  width: 120px;
+  height: 120px;
+}
