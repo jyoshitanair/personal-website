@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import star from "./assets/star.PNG";
 import { motion } from 'framer-motion'
 //SUPABASE
@@ -15,6 +15,32 @@ const scrollsettings = {
   transition: { duration: 0.8, ease: "ease-in-out" }
 };
 export default function Navbar() {
+ const [liked, setLiked] = useState(false)
+ const [likes, setLikes] = useState(0)
+ const [processing, setProcessing] = useState(false)
+  async function uplikes(name){
+    setProcessing(true);
+    let likes = 1
+    let addosub = 1
+    if(!liked){
+      addosub = -1
+    }
+    const {data} = await supabase.from("art").select("likes")
+    .eq("creation_name", `${name}`).maybeSingle() // obj not array
+    if (data){
+      likes = data.likes + addosub;
+      setLikes(likes);
+    }
+    const {error} = await supabase.from("art").upsert(
+            {
+                likes: likes,
+                creation_name: name,
+            },{onConflict: "creation_name"}
+        )
+    if(error){console.log(error);}
+    setLiked(!liked);
+    setProcessing(false);
+  }
   var art_projects = [
     {
       name: "STAR THEIF!",
@@ -51,7 +77,7 @@ export default function Navbar() {
           <div style = {{display: "flex", alignItems: "flex-start", justifyContent: "flex-start", flexDirection: "column", paddingLeft:"35px",paddingTop: "10px", width:"100%", textAlign:"left"}}>
             <h2 style = {{position: "relative", fontWeight: "bold", fontSize: "20px", width:"100%", display:"block"}}> {item.name}</h2>
             <h6> {item.description}</h6>
-            <button onClick={updateSupa()}> I like this :D </button>
+            <button disabled = {processing} onClick={() => uplikes(item.name)}>{likes} </button>
           </div>
         </motion.section>
       )
