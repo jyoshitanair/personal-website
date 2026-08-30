@@ -14,6 +14,9 @@ export default function Navbar() {
         <li><Link to = "/projects">Projects</Link></li>
         <li><Link to = "/cool-stuff">Cool Stuff</Link></li>
         <li><Link to = "/about-me">About me!</Link></li>
+        <li><Link to = "/speeches">Speeches</Link></li>
+        <li><Link to = "/art">Art</Link></li>
+        <li><Link to = "/silly-notes">Silly notes</Link></li>
     </ul>
   </nav>
 );

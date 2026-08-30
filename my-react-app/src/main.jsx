@@ -9,6 +9,9 @@ import Home from './home.jsx'
 import Projects from './projects.jsx'
 import Cool from './cool-stuff.jsx'
 import About from './aboutme.jsx'
+import Speeches from './speeches.jsx'
+import Blog from './blog.jsx'
+import Art from './art.jsx'
 import './index.css'
 const scrollsettings = {
   initial: { opacity: 0, y: 100 }, //the start
@@ -38,6 +41,9 @@ function App() {
                   <Route path = "/projects" element = {<Projects/>}/>
                   <Route path = "/cool-stuff" element = {<Cool/>}/>
                   <Route path = "/about-me" element = {<About/>}/>
+                  <Route path = "/speeches" element = {<Speeches/>}/>
+                  <Route path = "/art" element = {<Art/>}/>
+                  <Route path = "/silly-notes" element = {<Blog/>}/>
               </Routes>
             </div>
           </motion.section>
