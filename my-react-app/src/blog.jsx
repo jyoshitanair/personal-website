@@ -2,6 +2,6 @@ import React from 'react';
 
 export default function Navbar() {
   return (
-    <p> hi!</p>
+    <h1> Notes!</h1>
   );
 }

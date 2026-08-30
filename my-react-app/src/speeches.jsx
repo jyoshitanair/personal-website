@@ -10,6 +10,15 @@ export default function Navbar() {
             <h2> Our Best Friends </h2>
             <iframe className = "googledoc" src = "https://docs.google.com/document/d/1wdrWfXJx7WgoMEotWyQkp0_91Pcc21zNbXXCTMa2R94/preview" title = "Speech" allowFullScreen></iframe>
         </div>
+        <div>
+            <h2> Genetic Gamble </h2>
+            <iframe className = "googledoc" src = "https://docs.google.com/document/d/1wdrWfXJx7WgoMEotWyQkp0_91Pcc21zNbXXCTMa2R94/preview" title = "Speech" allowFullScreen></iframe>
+        </div>
+        <h2> Humerous Interpretation: </h2>
+        <div>
+            <h2> The Other Guys </h2>
+            <iframe className = "googledoc" src = "https://docs.google.com/document/d/1wdrWfXJx7WgoMEotWyQkp0_91Pcc21zNbXXCTMa2R94/preview" title = "Speech" allowFullScreen></iframe>
+        </div>
     </div>
     );
 }
