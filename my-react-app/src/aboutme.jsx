@@ -21,7 +21,7 @@ export default function aboutme() {
             <div>
                 <h2> Hellooo~ I'm <span> <b> Jyoshita </b></span></h2>
                 <h2> Im a teen who loves <span> <b> tech </b></span></h2>
-                <h2> Want to leave a message? <span> <b> Click me! </b></span> </h2>
+                <h2> Want to leave a message? <span> <b> too bad i haven't coded that part yet T-T </b></span> </h2>
             </div>
             <img className = "change" src = {me}/>
         </div>

@@ -13,6 +13,9 @@ import Speeches from './speeches.jsx'
 import Blog from './blog.jsx'
 import Art from './art.jsx'
 import './index.css'
+import speech from "./assets/speech.PNG";
+import tech from "./assets/tech.PNG";
+import art from "./assets/art.PNG";
 const scrollsettings = {
   initial: { opacity: 0, y: 100 }, //the start
   animate: { opacity: 1, y: 0 },
@@ -30,8 +33,15 @@ function Rerender(){
   return(
     <div class = "overall">
             <motion.section  key = {`left-${location.pathname}`} className="scroll left" {...scrollsettings2}>
-                <h1> hey </h1>
-                <h1> hey </h1>
+                <img className = "side_img" src ={speech} />
+                <img className = "side_img" src ={art} />
+                <img className = "side_img" src ={tech} />
+                <h2> you've made it this far </h2>
+                <h2> ... </h2>
+                <h2> don't give up now </h2>
+                <h2>  </h2>
+                <h2> the end is near </h2>
+                <h2> idk this'll be replaced later </h2>
             </motion.section>
 
             <motion.section  key = {`middle-${location.pathname}`} id = "header_container" className="scroll" {...scrollsettings}>

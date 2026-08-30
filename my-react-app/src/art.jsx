@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import star from "./assets/star.PNG";
 import { motion } from 'framer-motion'
 //SUPABASE
@@ -14,26 +14,36 @@ const scrollsettings = {
   viewport: { once: false, amount: 0.2 },
   transition: { duration: 0.8, ease: "ease-in-out" }
 };
-export default function Navbar() {
- const [liked, setLiked] = useState(false)
+export default function Art() {
+ const [liked, setLiked] = useState(true)
  const [likes, setLikes] = useState(0)
  const [processing, setProcessing] = useState(false)
+  async function initallikes(name){
+    let like = 0
+    const {data} = await supabase.from("art").select("likes")
+    .eq("creation_name", `${name}`).maybeSingle()
+    if(data){
+      like = data.likes;
+      setLikes(like);
+    }
+  }
   async function uplikes(name){
     setProcessing(true);
-    let likes = 1
+    let like = 1
     let addosub = 1
     if(!liked){
       addosub = -1
     }
+    console.log(addosub)
     const {data} = await supabase.from("art").select("likes")
     .eq("creation_name", `${name}`).maybeSingle() // obj not array
     if (data){
-      likes = data.likes + addosub;
-      setLikes(likes);
+      like = data.likes + addosub;
+      setLikes(like);
     }
     const {error} = await supabase.from("art").upsert(
             {
-                likes: likes,
+                likes: like,
                 creation_name: name,
             },{onConflict: "creation_name"}
         )
@@ -63,8 +73,14 @@ export default function Navbar() {
       img: star
     },
   ]
-    function refindnodes() {
+  useEffect(() => {
+    refindnodes(true);
+  },[]);
+    function refindnodes(start) {
     const nodes = art_projects.map((item, key) => {
+      if (start == true){
+        initallikes(item.name);
+      }
       let even = false
       if (key % 2 === 0){
         even = true
@@ -88,7 +104,7 @@ export default function Navbar() {
     <div>
       <h1> Art!</h1>
       <div className = "grid">
-        {refindnodes()}
+        {refindnodes(false)}
       </div>
     </div>
   );

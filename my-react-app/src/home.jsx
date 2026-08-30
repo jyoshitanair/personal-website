@@ -51,6 +51,7 @@ export default function Home() {
       <h5 style = {{padding: "0px 50px" }} > helloo welcome to my little corner of the internet! i'm jyoshita a teen that loves art & tech :P </h5>
     </div>
     </div>
+      <h2> Click this...</h2>
       <div className = "overall" style = {{alignItems:"center", justifyContent:"center", gap: "30px", backgroundColor: "rgb(32, 165, 88)", height: '40vh' }}>
       <button className = {logos ? 'normal' : 'normal clicked'} onClick = {() => isLogos(!logos)}> <img src = {img}/> </button>
       <button className = {logos ? 'anchor-left'  : 'anchor-left clicked' } href = "https://jyoshitanair.itch.io/"> <img src = {itch}/></button>

@@ -23,8 +23,11 @@ export default function CoolStuff() {
   }, [])
   return (
   <>
-    <h1>  Github Heat Map: </h1>
+    <h1> epic title </h1>
+    <h2> Github Heat Map: </h2>
     <img src="https://ghchart.rshah.org/jyoshitanair"/>
+    <h2> yeah that's all i got T_T </h2>
+    <h2> yayy </h2>
   </>
 );
 }

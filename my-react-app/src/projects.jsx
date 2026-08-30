@@ -154,6 +154,7 @@ export default function Projects() {
       <div className = "projects">
         {refindnodes(search, categories)}
       </div>
+      {/*
       <motion.section className="scroll" {...scrollsettings}>
         <h2> Hi there!</h2>
         <h6> yapity yap yap 1</h6>
@@ -165,7 +166,7 @@ export default function Projects() {
       <motion.section className="scroll" {...scrollsettings}>
         <h2> Hi there!oooh</h2>
         <h6> yapity yap yap 3</h6>
-      </motion.section>
+      </motion.section> */}
  </div>
 );
 }

@@ -66,7 +66,7 @@ body {
   min-height: 100vh;
   min-width: 0; 
   background-image: url("./assets/gif.gif");
-  background-size: 100%, 600px;
+  background-size: 100% 600px;
   background-repeat: repeat;
   background-position: center;
   flex-direction: column;
@@ -183,7 +183,9 @@ code {
   overflow: hidden;
   width: 100%;
   z-index:300;
-  background-color: rgb(32, 165, 88);
+  gap: 20cw;
+  background-color: rgb(202, 230, 213);
+  height: 100%;
 }
 .left{
   display:flex;
@@ -193,8 +195,15 @@ code {
   flex: 1; 
   overflow: hidden;
   box-sizing: border-box;
+  container-type: inline-size;
+  gap: 20cqw;
+}
+.side_img{
+  width: 50cqw; 
+  height: 50cqw; 
 }
 .right{
+  container-type: inline-size;
   justify-content: left;
   display:flex;
   flex-direction: column;
@@ -381,4 +390,11 @@ code {
   display: grid;
   grid-template-columns: repeat(2, 0.85fr);
   gap: 4cqw;
+}
+.logo img{
+  width: 60cqw;
+  height: 60cqw; 
+}
+.navbar{
+  width: 100%;
 }

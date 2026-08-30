@@ -1,12 +1,13 @@
 import React from 'react';
 import {Link } from 'react-router-dom'
-
+import img from "./assets/Illustration 20260803.PNG";
 
 export default function Navbar() {
   return (
   <nav className = "navbar">
     <div className = "logo">
-        <p> hii</p>
+        <h3> name of website</h3>
+        <img src = {img}/>
     </div>
     {/*unordered list and list item*/}
     <ul>
