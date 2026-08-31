@@ -38,7 +38,7 @@ export default function aboutme() {
                 <h2> Hellooo~ I'm <span> <b> Jyoshita </b></span></h2>
                 <h2> Im a teen who loves <span> <b> tech </b></span></h2>
                 <h2> Want to leave a message? <span> <b> <Link 
-  to="/messages" 
+  to="/contact" 
   onClick={(e) => e.stopPropagation()}
 >
   Click me
