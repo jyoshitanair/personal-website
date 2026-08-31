@@ -1,16 +1,64 @@
-# React + Vite
+TITLE
+=========================================
+Crewshon (My personal website lol)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+AUTHORS
+========================================
+by: jyoshitanair (github)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## React Compiler
+GITHUB REPO
+========================================
+https://github.com/jyoshitanair/personal-website
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+HOW TO ACSESS
+========================================
+VERCEL: https://crewshon.vercel.app/
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+DESCRIPTION
+========================================
+It's my personal website and It's a portfolio of my projects, a singular art project, my speeches, and a place to contact me :D 
+
+
+
+Features
+========================================
+⭐️A guestbook to leave a short message that comes with a randomly generated image that I drew :D
+
+
+⭐️Projects that are sortable with tags and searches
+
+
+⭐️A like button for my art that stores the total likes :D
+
+
+⭐️Iframes for holding my speeches
+
+
+⭐️Cool animations :D using keyframes
+
+
+⭐️Pretty art :D
+
+
+
+AI USAGE
+========================================
+⭐️for debugging gemini + it wrote the page switching part in my about me!
+
+
+⭐️all art, ideas, readme, and core concepts done by me :3
+
+
+
+WHAT I LEARNED
+========================================
+⭐️CQW...in css...I dunno how useful it realy is but i used it a lot for this :D
+
+⭐️Animations in CSS a bit more . like doing cooler stuff with them :D
+
+
+*Made with 💖 by jyoshita!*
