@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
   <nav className = "navbar">
     <div className = "logo">
-        <h3> name of website</h3>
+        <h3 style = {{fontWeight: "bold", fontSize: "30px", width:"100%", display:"block", fontFamily: "math"}}> crewshon </h3>
         <img src = {img}/>
     </div>
     {/*unordered list and list item*/}
@@ -18,6 +18,7 @@ export default function Navbar() {
         <li><Link to = "/speeches">Speeches</Link></li>
         <li><Link to = "/art">Art</Link></li>
         <li><Link to = "/silly-notes">Silly notes</Link></li>
+        <li><Link to = "/message">Message</Link></li>
     </ul>
   </nav>
 );

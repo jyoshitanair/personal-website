@@ -12,6 +12,7 @@ import About from './aboutme.jsx'
 import Speeches from './speeches.jsx'
 import Blog from './blog.jsx'
 import Art from './art.jsx'
+import Message from './message.jsx'
 import './index.css'
 import speech from "./assets/speech.PNG";
 import tech from "./assets/tech.PNG";
@@ -54,6 +55,7 @@ function Rerender(){
                     <Route path = "/speeches" element = {<Speeches/>}/>
                     <Route path = "/art" element = {<Art/>}/>
                     <Route path = "/silly-notes" element = {<Blog/>}/>
+                    <Route path = "/message" element = {<Message/>}/>
                 </Routes>
               </div>
             </motion.section>
