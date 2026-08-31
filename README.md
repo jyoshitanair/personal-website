@@ -79,6 +79,14 @@ MOTIVATION
 
 SCREENSHOTS
 ========================================
+#1
+<img width="457" height="906" alt="contact" src="https://github.com/user-attachments/assets/ff548676-9b04-4ed4-b4f8-8990a0d185a2" />
+#2
+<img width="1870" height="936" alt="main" src="https://github.com/user-attachments/assets/1a2be6d0-84ae-4561-a7c1-1e27e2eecef8" />
+#3
+<img width="417" height="942" alt="bar" src="https://github.com/user-attachments/assets/a956a6df-bb04-43f1-b5b4-57ee6a968bf5" />
+#4
+<img width="1716" height="917" alt="aboutme" src="https://github.com/user-attachments/assets/ee9b4121-2c12-40ca-b01f-a7440c526b66" />
 
 
 *Made with 💖 by jyoshita!*
