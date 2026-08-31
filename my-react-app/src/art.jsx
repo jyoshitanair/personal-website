@@ -117,6 +117,7 @@ export default function Art() {
       <div className = "grid">
         {refindnodes(false)}
       </div>
+      <h2> will add more soon :P</h2>
     </div>
   );
 }
