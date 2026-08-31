@@ -3,6 +3,11 @@ import star from "./assets/star.PNG";
 import { motion } from 'framer-motion'
 import on from "./assets/on.PNG";
 import off from "./assets/off.PNG";
+
+import dexter from "./assets/dexter.PNG";
+import silly from "./assets/silly.PNG";
+import leon from "./assets/leon.PNG";
+import christ from "./assets/christ.PNG";
 //SUPABASE
 //supabase
 import { createClient } from '@supabase/supabase-js'
@@ -58,25 +63,26 @@ export default function Art() {
   }
   var art_projects = [
     {
-      name: "STAR THEIF!",
-      description: "game des!",
-      img: star
+      name: "leon :D",
+      description: "early art of my oc leon/kade",
+      img: leon
+    },
+    /*
+    {
+      name: "rin :D",
+      description: "early sketches of my oc rin",
+      img: silly
     },
     {
-      name: "STAR THEIF!",
-      description: "game des!",
-      img: star
+      name: "dexter",
+      description: "made this for a friend i actually haven't finished it T-T",
+      img: dexter
     },
     {
-      name: "STAR THEIF!",
-      description: "game des!",
-      img: star
-    },
-    {
-      name: "STAR THEIF!",
-      description: "game des!",
-      img: star
-    },
+      name: "christmas thingy",
+      description: "idk i think it looks really good",
+      img: christ
+    },*/
   ]
   useEffect(() => {
     refindnodes(true);

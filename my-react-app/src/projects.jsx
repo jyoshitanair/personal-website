@@ -7,7 +7,11 @@ import itch from "./assets/itch.png";
 ///FOR IMGS!!
 import star from "./assets/star.PNG";
 import cold from "./assets/cold.png";
+import duck from "./assets/duck.PNG";
+import fish2 from "./assets/fish2.PNG";
 import cat from "./assets/cover.png";
+import escape from "./assets/escape.PNG";
+import monster from "./assets/monster.PNG";
 import ren from "./assets/ren.png";
 
 const scrollsettings = {
@@ -21,7 +25,7 @@ var game_projects = [
     git: "https://github.com/jyoshitanair/star-theif",
     itch: "https://jyoshitanair.itch.io/star-theif",
     name: "STAR THEIF!",
-    description: "game des!",
+    description: "This is a game super inspired by Poker and Uno. It is a 2 player multiplayer card game where you take turns placing cards of the same color/number in the center. Every time you play a card you get one point. If you are unable to play a card, you can also switch out one of your card for a new card!(NOT WORKING RIGHT NOW!!)",
     img: star,
     categories: ["Godot"]
   },
@@ -29,7 +33,7 @@ var game_projects = [
     git: "https://github.com/jyoshitanair/text-game",
     itch: "https://jyoshitanair.itch.io/cat-mayhem",
     name: "Cat Mayhem",
-    description: "game des!",
+    description: "You are a cat that just moved in to their new purrever home! (yes the puns are necessary). You find out that you have a kitty roomate who is absolutely obssessed with the ideas of going outside. In this game you will have a variety of different activities to do with your kitty friend and try to survive! It's very inspired by those old terminal games - but made better? and it has ASCII code art! It is also a visual novel!",
     img: cat, 
     categories: ["Godot"]
   },
@@ -37,41 +41,41 @@ var game_projects = [
     git: "https://github.com/jyoshitanair/visual-novel",
     itch: "https://jyoshitanair.itch.io/love-on-the-menu",
     name: "Love on The Menu",
-    description: "game des!",
+    description: "You are in a coffee shop trying to find love.This is a visual novel created using Renpy! Have fun - there are 10 different endings and 3 different characters to end up with!",
     img: ren, 
-    categories: ["Godot"]
+    categories: ["Renpy"]
   },
   {
     git: "https://github.com/jyoshitanair/duck_waddle",
     itch: "https://jyoshitanair.itch.io/duck-waddle",
     name: "Duck Waddle",
-    description: "game des!",
-    img: cold, 
+    description: "You are a duck just trying to have a swim. But oh no...there are so many rocks in your path...try and dodge them or you will die! ",
+    img: duck, 
     categories: ["Godot"]
   },
    {
     git: "https://github.com/jyoshitanair/fish-game",
     itch: "https://jyoshitanair.itch.io/fish",
     name: "Fish",
-    description: "game des!",
-    img: cold, 
+    description: "You are roleplaying as a fish who was abandoned by their terrible owner and just dumped into the ocean. But despite it all, you are determined to find your human again and get back in your fishbowl! So you set out on a mission in the huge ocean trying to find the city. Along the way you meet many new friends until you eventually make it back. But perhaps things may not be as good as you thought...?",
+    img: fish2, 
     categories: ["Godot"]
   },
   {
     git: "https://github.com/jyoshitanair/escape_room",
     itch: "https://jyoshitanair.itch.io/escape-the-school",
     name: "Escape The School",
-    description: "game des!",
-    img: star, 
+    description: "An escape room to escape the school during detention. You need to collect three keys to escape and jump out the window or you'll be stuck forever",
+    img: escape, 
     categories: ["Godot"]
   },
   {
     git: "https://github.com/jyoshitanair/MonsterManor",
     itch: "https://jyoshitanair.itch.io/monster-manor",
     name: "Monster Manor",
-    description: "game des!",
-    img: star, 
-    categories: ["Godot", "Supabase"]
+    description: "Monster Manor is a 2D platformer -- To win you must go to the 4th room and have collected 10 apples and killed 10 enemies. This triggers a You Win screen. ",
+    img: monster, 
+    categories: ["Godot"]
   },
 ]
 
@@ -84,15 +88,17 @@ export default function Projects() {
   const [color2, setColor2] = useState(false);
   const [color3, setColor3] = useState(false);
   const [color4, setColor4] = useState(false);
+  const [color5, setColor5] = useState(false);
   useEffect(() => {
     var array = []
     if (color1) array.push("Godot")
     if (color2) array.push("React")
     if (color3) array.push("Supabase")
     if (color4) array.push("CSS")
+    if (color5) array.push("Renpy")
     setCategories(array)
     console.log(categories)
-  }, [color1, color2, color3, color4])
+  }, [color1, color2, color3, color4, color5])
   function refindnodes(search, categories) {
     var them = search.trim().toLowerCase()
     const filtered_nodes = game_projects.filter((item) => {
@@ -148,6 +154,7 @@ export default function Projects() {
           <button style = {{backgroundColor: color2? "red": "gray"}} onClick = {() => setColor2(!color2)}> React </button>
           <button style = {{backgroundColor: color3? "red": "gray"}} onClick = {() => setColor3(!color3)}> Supabase </button>
           <button style = {{backgroundColor: color4? "red": "gray"}} onClick = {() => setColor4(!color4)}> CSS </button>
+          <button style = {{backgroundColor: color5? "red": "gray"}} onClick = {() => setColor5(!color5)}> Renpy </button>
         </div>
         }
       </div>
