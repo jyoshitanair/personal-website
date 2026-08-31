@@ -22,31 +22,39 @@ const scrollsettings = {
 
 export default function Message() {
   const imgs = [speech, tech, art]
+  const[text, setText] = useState("")
+  const[processing, setProcessing] = useState(false)
+  const[data1, setData] = useState([])
 
   async function refindnodes() {
-    const {data} = await supabase.from("art").select('*').order('id', {ascending:true})
-    setData(data)
+    const {data} = await supabase.from("messages").select('*').order('id', {ascending:true})
+    if(data){
+      setData(data)
+    }else{
+      setData([])
+    }
+  
   };
   useEffect(() => {
     refindnodes();
   },[]);
-  const[text, setText] = useState("")
-  const[processing, setProcessing] = useState(false)
-  const[data1, setData] = useState()
+
   async function addMessage(name){
     setProcessing(true)
-    const randi = Math.floor(0, Math.random() * imgs.length)
+    const randi = Math.floor(Math.random() * imgs.length)
     const value = imgs[randi]
-    const {data} = await supabase.from("art").insert(
-      {
+    const {data} = await supabase.from("messages").insert(
+      [{
         message: text,
         img: value,
-      }
+      }]
     )
     setProcessing(false)
+    refindnodes();
   }
   return (
     <div>
+        <h1> Contact</h1>
         <h2> Leave a message! </h2>
         <input
         maxLength={20}
@@ -58,12 +66,14 @@ export default function Message() {
         <button disabled = {processing} onClick={()=> {addMessage(text)}}> done</button>
         <div className = "grid">
           {data1.map((item, key) => {
-            <motion.section style = {{backgroundColor: "rgba(132, 113, 157, 0.53)", flexDirection:"column", width: "100%"}} className="scroll gridItem" key = {key} {...scrollsettings}>
-              <img className = "large" src = {item.img}/>
-              <div style = {{display: "flex", alignItems: "flex-start", justifyContent: "flex-start", flexDirection: "column", paddingLeft:"35px",paddingTop: "10px", width:"100%", textAlign:"left"}}>
-                <h2 style = {{position: "relative", fontWeight: "bold", fontSize: "20px", width:"100%", display:"block"}}> {item.message}</h2>
-              </div>
-            </motion.section>
+            return(
+              <motion.section style = {{backgroundColor: "rgba(132, 113, 157, 0.53)", flexDirection:"column", width: "100%"}} className="scroll gridItem" key = {key} {...scrollsettings}>
+                <img className = "large" src = {item.img}/>
+                <div style = {{display: "flex", alignItems: "flex-start", justifyContent: "flex-start", flexDirection: "column", paddingLeft:"35px",paddingTop: "10px", width:"100%", textAlign:"left"}}>
+                  <h2 style = {{position: "relative", fontWeight: "bold", fontSize: "20px", width:"100%", display:"block"}}> {item.message}</h2>
+                </div>
+              </motion.section>
+            );
           })}
         </div>
         <h2> Or if you wanna contact me... </h2>

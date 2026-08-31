@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import star from "./assets/star.PNG";
 import { motion } from 'framer-motion'
+import on from "./assets/on.PNG";
+import off from "./assets/off.PNG";
 //SUPABASE
 //supabase
 import { createClient } from '@supabase/supabase-js'
@@ -17,6 +19,7 @@ const scrollsettings = {
 export default function Art() {
  const [liked, setLiked] = useState(true)
  const [likes, setLikes] = useState(0)
+ const [curimg, setCurimg] = useState(off)
  const [processing, setProcessing] = useState(false)
   async function initallikes(name){
     let like = 0
@@ -30,9 +33,11 @@ export default function Art() {
   async function uplikes(name){
     setProcessing(true);
     let like = 1
+    setCurimg(on)
     let addosub = 1
     if(!liked){
       addosub = -1
+      setCurimg(off)
     }
     console.log(addosub)
     const {data} = await supabase.from("art").select("likes")
@@ -93,7 +98,7 @@ export default function Art() {
           <div style = {{display: "flex", alignItems: "flex-start", justifyContent: "flex-start", flexDirection: "column", paddingLeft:"35px",paddingTop: "10px", width:"100%", textAlign:"left"}}>
             <h2 style = {{position: "relative", fontWeight: "bold", fontSize: "20px", width:"100%", display:"block"}}> {item.name}</h2>
             <h6> {item.description}</h6>
-            <button disabled = {processing} onClick={() => uplikes(item.name)}>{likes} </button>
+            <button disabled = {processing} onClick={() => uplikes(item.name)}>{likes} <img src = {curimg}/> </button>
           </div>
         </motion.section>
       )

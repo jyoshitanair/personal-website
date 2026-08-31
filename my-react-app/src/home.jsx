@@ -52,7 +52,7 @@ export default function Home() {
     </div>
     </div>
       <h2> Click this...</h2>
-      <div className = "overall" style = {{alignItems:"center", justifyContent:"center", gap: "30px", backgroundColor: "rgb(32, 165, 88)", height: '40vh' }}>
+      <div className = "overall" style = {{alignItems:"center", justifyContent:"center", gap: "30px", backgroundColor: "rgba(148, 221, 178, 0.44)", height: '60vh' }}>
       <button className = {logos ? 'normal' : 'normal clicked'} onClick = {() => isLogos(!logos)}> <img src = {img}/> </button>
       <button className = {logos ? 'anchor-left'  : 'anchor-left clicked' } href = "https://jyoshitanair.itch.io/"> <img src = {itch}/></button>
       <button className = {logos ? 'anchor-right' : 'anchor-right clicked' } href = "https://github.com/jyoshitanair"> <img src = {github}/></button>

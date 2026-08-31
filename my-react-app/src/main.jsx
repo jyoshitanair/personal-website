@@ -42,7 +42,7 @@ function Rerender(){
                 <h2> don't give up now </h2>
                 <h2>  </h2>
                 <h2> the end is near </h2>
-                <h2> idk this'll be replaced later </h2>
+                <h2> wow. what a waste of time. </h2>
             </motion.section>
 
             <motion.section  key = {`middle-${location.pathname}`} id = "header_container" className="scroll" {...scrollsettings}>
@@ -55,7 +55,7 @@ function Rerender(){
                     <Route path = "/speeches" element = {<Speeches/>}/>
                     <Route path = "/art" element = {<Art/>}/>
                     <Route path = "/silly-notes" element = {<Blog/>}/>
-                    <Route path = "/message" element = {<Message/>}/>
+                    <Route path = "/contact" element = {<Message/>}/>
                 </Routes>
               </div>
             </motion.section>

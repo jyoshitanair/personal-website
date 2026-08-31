@@ -178,13 +178,15 @@ code {
   flex-direction: row;
 }
 .navbar{
+  background-image: url("./assets/clipboard.PNG");
+  background-size: 105%;
+  background-repeat: no-repeat;
   left: 0;
   position: sticky;
   overflow: hidden;
   width: 100%;
   z-index:300;
   gap: 20cw;
-  background-color: rgb(202, 230, 213);
   height: 100%;
 }
 .left{
