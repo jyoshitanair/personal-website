@@ -43,15 +43,15 @@ export default function Message() {
   async function addMessage(name){
     setProcessing(true)
     const randi = Math.floor(Math.random() * imgs.length)
-    const value = imgs[randi]
     const {data} = await supabase.from("messages").insert(
       [{
         message: text,
-        img: value,
+        img: randi,
       }]
     )
-    setProcessing(false)
+    setText("")
     refindnodes();
+    setProcessing(false)
   }
   return (
     <div>
@@ -68,9 +68,11 @@ export default function Message() {
         <h2 style = {{paddingTop: "30px"}}> Other Messages! </h2>
         <div className = "grid">
           {data1.map((item, key) => {
+            const num = Number(item.img) || 0
+            const img = imgs[num]
             return(
               <motion.section style = {{backgroundColor: "rgba(132, 113, 157, 0.53)", flexDirection:"column", width: "100%"}} className="scroll gridItem" key = {key} {...scrollsettings}>
-                <img className = "large" src = {item.img}/>
+                <img className = "large" src = {img}/>
                 <div style = {{display: "flex", alignItems: "flex-start", justifyContent: "flex-start", flexDirection: "column", paddingLeft:"35px",paddingTop: "10px", width:"100%", textAlign:"left"}}>
                   <h2 style = {{position: "relative", fontWeight: "bold", fontSize: "10px", width:"100%", display:"block"}}> {item.message}</h2>
                 </div>
